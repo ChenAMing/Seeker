@@ -1,0 +1,69 @@
+@layer base {
+    /** Light **/
+    :root {
+        /** Surface **/
+        --color-sur: #fffbfe;
+        --color-on-sur: #1c1b1f;
+
+        --color-sur-var: #e7e0ec;
+        --color-on-sur-var: #49454f;
+
+        /** Component **/
+        --color-pri: #6750a4;
+        --color-on-pri: #ffffff;
+
+        --color-sec: #e8def8;
+        --color-on-sec: #1d192b;
+
+        --color-err: #b3261e;
+        --color-on-err: #ffffff;
+
+        /** Container **/
+        --color-ctr-pri: #ffd8e4;
+        --color-on-ctr-pri: #31111d;
+
+        --color-ctr-sec: #f7f2f9;
+        --color-on-ctr-sec: #1c1b1f;
+
+        /** Outline **/
+        --color-otl: #79747e;
+
+        /** Mask **/
+        --color-mask: rgba(28, 27, 31, 0.04);
+        --color-mask-act: rgba(28, 27, 31, 0.08);
+    }
+
+    /** Dark **/
+    :is(.dark) {
+        /** Surface **/
+        --color-sur: #1c1b1f;
+        --color-on-sur: #e6e1e5;
+
+        --color-sur-var: #49454f;
+        --color-on-sur-var: #cac4d0;
+
+        /** Component **/
+        --color-pri: #d0bcff;
+        --color-on-pri: #381e72;
+
+        --color-sec: #4a4458;
+        --color-on-sec: #e8def8;
+
+        --color-err: #f2b8b5;
+        --color-on-err: #601410;
+
+        /** Container **/
+        --color-ctr-pri: #633b48;
+        --color-on-ctr-pri: #ffd8e4;
+
+        --color-ctr-sec: #26242a;
+        --color-on-ctr-sec: #e6e1e5;
+
+        /** Outline **/
+        --color-otl: #938f99;
+
+        /** Mask **/
+        --color-mask: rgba(230, 225, 229, 0.04);
+        --color-mask-act: rgba(230, 225, 229, 0.08);
+    }
+}
