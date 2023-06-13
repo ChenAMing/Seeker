@@ -1,3 +1,9 @@
+import { RouterView } from 'vue-router'
+
 export default {
-    render: () => <div></div>,
+    render: () => (
+        <div id='seeker-content'>
+            <RouterView />
+        </div>
+    ),
 }
