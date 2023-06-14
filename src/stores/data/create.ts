@@ -5,4 +5,7 @@ export const useCreate = defineStore('create', {
         name: '',
         description: '',
     }),
+    actions: {
+        confirm() {},
+    },
 })
