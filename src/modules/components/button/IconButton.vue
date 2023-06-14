@@ -1,9 +1,16 @@
 <script lang="ts" setup>
+import { useClassName } from '@/composables'
+
 defineProps<{ icon: string; error?: boolean; disabled?: boolean }>()
 
 const emit = defineEmits<{ click: [] }>()
 
-const handleClick = () => emit('click')
+const { className, activate } = useClassName('scale-75', 150)
+
+function handleClick() {
+    activate()
+    emit('click')
+}
 </script>
 
 <template>
@@ -17,7 +24,7 @@ const handleClick = () => emit('click')
             { 'pointer-events-none text-mask-act': disabled },
         ]">
         <span
-            class="group-active:text-pri' !h-6 !w-6 transition-all duration-150 group-active:scale-75 group-active:text-otl"
-            :class="icon"></span>
+            class="!h-6 !w-6 transition-all duration-150 group-active:scale-75 group-active:text-otl"
+            :class="[icon, className]"></span>
     </button>
 </template>
