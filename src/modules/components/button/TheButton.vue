@@ -14,9 +14,9 @@ const mapType = {
 }
 
 const mapTypeDisabled = {
-    primary: 'bg-mask-act text-otl border-transparent',
-    secondary: 'bg-mask-act text-otl border-transparent',
-    outline: 'bg-transparent text-otl border-mask-act',
+    primary: 'bg-more text-otl border-transparent',
+    secondary: 'bg-mask-more text-otl border-transparent',
+    outline: 'bg-transparent text-otl border-mask-more',
     text: 'bg-transparent text-otl border-transparent',
 }
 
@@ -30,7 +30,7 @@ const handleClick = () => (disabled ? undefined : emit('click'))
         type="button"
         @click="handleClick"
         :disabled="disabled"
-        class="relative flex h-9 min-w-[2.5rem] items-center rounded border text-sm transition-colors duration-300 after:pointer-events-none after:absolute after:inset-0 after:rounded-sm after:bg-transparent after:transition-colors after:duration-300 hover:after:bg-mask focus:after:bg-mask active:after:bg-mask-act"
+        class="relative flex h-9 min-w-[2.5rem] items-center rounded border text-sm transition-colors duration-300 after:pointer-events-none after:absolute after:inset-0 after:rounded-sm after:bg-transparent after:transition-colors after:duration-300 hover:after:bg-mask focus:after:bg-mask active:after:bg-mask-more"
         :class="disabled ? [mapTypeDisabled[type], 'pointer-events-none'] : mapType[type]">
         <span v-if="icon" class="ml-4 !h-5 !w-5" :class="icon"></span>
         <span

@@ -18,10 +18,10 @@ function handleClick() {
         type="button"
         @click="handleClick"
         :disabled="disabled"
-        class="group h-10 w-10 rounded p-2 transition-colors duration-300 hover:bg-mask focus:bg-mask active:bg-mask-act"
+        class="group h-10 w-10 rounded p-2 transition-colors duration-300 hover:bg-mask focus:bg-mask active:bg-mask-more"
         :class="[
             error ? 'focus:text-err' : 'focus:text-pri',
-            { 'pointer-events-none text-mask-act': disabled },
+            { 'pointer-events-none text-mask-more': disabled },
         ]">
         <span
             class="!h-6 !w-6 transition-all duration-150 group-active:scale-75 group-active:text-otl"

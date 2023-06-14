@@ -17,7 +17,7 @@ const onBlur = () => (isFocus.value = false)
             @blur="onBlur"
             type="text"
             v-model="modelValue"
-            class="h-12 w-full rounded-t border-b border-otl bg-mask px-4 text-sm text-on-ctr-sec outline-none transition-colors duration-300 hover:bg-mask-act"
+            class="h-12 w-full rounded-t border-b border-otl bg-mask-less px-4 text-sm text-on-ctr-sec outline-none transition-colors duration-300 hover:bg-mask"
             :class="{ 'text-center': center }" />
         <div
             class="pointer-events-none absolute inset-x-0 bottom-0 h-0.5 bg-pri transition-transform duration-300"

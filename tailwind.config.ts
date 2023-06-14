@@ -44,8 +44,9 @@ export default {
                 /*
                  * Mask
                  */
+                'mask-less': 'var(--color-mask-less)',
                 mask: 'var(--color-mask)',
-                'mask-act': 'var(--color-mask-act)',
+                'mask-more': 'var(--color-mask-more)',
             },
         },
     },

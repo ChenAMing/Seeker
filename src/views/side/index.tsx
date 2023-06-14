@@ -15,7 +15,7 @@ export default {
                     <div
                         onClick={withModifiers(side.toggle, ['self'])}
                         v-show={side.show}
-                        class='fixed inset-0 z-20 bg-mask-act backdrop-blur-sm md:hidden'></div>
+                        class='fixed inset-0 z-20 bg-mask-more backdrop-blur-sm md:hidden'></div>
                 </Transition>
 
                 <div

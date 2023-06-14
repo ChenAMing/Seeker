@@ -21,7 +21,7 @@ function go(id: string) {
             v-for="item in meta.all"
             :key="item.name"
             @click="go(item.id)"
-            class="flex h-8 items-center gap-6 rounded px-3 transition-colors duration-300 hover:bg-mask active:bg-mask-act"
+            class="flex h-8 items-center gap-6 rounded px-3 transition-colors duration-300 hover:bg-mask active:bg-mask-more"
             :class="{ 'pointer-events-none bg-sec hover:bg-sec': route.query.id === item.id }">
             <span
                 class="pointer-events-none !h-4 !w-4 transition-colors duration-150"

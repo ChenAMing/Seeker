@@ -29,8 +29,9 @@
         --color-otl: #79747e;
 
         /** Mask **/
+        --color-mask-less: rgba(28, 27, 31, 0.04);
         --color-mask: rgba(28, 27, 31, 0.08);
-        --color-mask-act: rgba(28, 27, 31, 0.16);
+        --color-mask-more: rgba(28, 27, 31, 0.16);
     }
 
     /** Dark **/
@@ -63,7 +64,8 @@
         --color-otl: #938f99;
 
         /** Mask **/
+        --color-mask-less: rgba(230, 225, 229, 0.04);
         --color-mask: rgba(230, 225, 229, 0.08);
-        --color-mask-act: rgba(230, 225, 229, 0.16);
+        --color-mask-more: rgba(230, 225, 229, 0.16);
     }
 }
