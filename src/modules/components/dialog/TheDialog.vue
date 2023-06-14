@@ -23,8 +23,8 @@ function handleCancel() {
 }
 
 defineSlots<{
-    widget: (props: { open: boolean }) => any
-    default: (props: {}) => any
+    widget(props: { open: () => any }): any
+    default(props: {}): any
 }>()
 </script>
 
