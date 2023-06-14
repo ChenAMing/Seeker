@@ -5,10 +5,9 @@ function joinTitle(title: string, prepend?: string, append?: string) {
 }
 
 /**
- * @description
- * 修改 HTML title
+ * 用于同步修改 HTML title
  */
-function autoSyncTitle({ options, store }: PiniaPluginContext) {
+function autoSyncTitle({ options, store }: PiniaPluginContext): void {
     if (options.autoSyncTitle) {
         store.$subscribe(
             (_, state) => {

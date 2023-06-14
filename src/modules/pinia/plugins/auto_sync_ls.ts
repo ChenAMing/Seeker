@@ -1,10 +1,10 @@
 import type { PiniaPluginContext } from 'pinia'
 
 /**
- * @description
- * state 初始值作为 localStorage 初始值, 初始化后覆写 state
+ * 若 localStorage 没有对应的现有, 则 state 初始值作为 localStorage 初始值
+ * 若 localStorage 已有初始值, 则用此值覆写 state
  */
-function autoSyncLocalStorage({ options, store }: PiniaPluginContext) {
+function autoSyncLocalStorage({ options, store }: PiniaPluginContext): void {
     if (options.autoSyncLocalStorage) {
         const key = options.autoSyncLocalStorage.key ?? store.$id
 
