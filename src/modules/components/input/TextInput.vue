@@ -1,0 +1,26 @@
+<script lang="ts" setup>
+import { ref } from 'vue'
+
+defineProps<{ center?: boolean }>()
+
+const modelValue = defineModel<string>({ required: true })
+
+const isFocus = ref<boolean>()
+const onFocus = () => (isFocus.value = true)
+const onBlur = () => (isFocus.value = false)
+</script>
+
+<template>
+    <label class="relative block">
+        <input
+            @focus="onFocus"
+            @blur="onBlur"
+            type="text"
+            v-model="modelValue"
+            class="h-12 w-full rounded-t border-b border-otl bg-mask px-4 text-sm text-on-ctr-sec outline-none transition-colors duration-300 hover:bg-mask-act"
+            :class="{ 'text-center': center }" />
+        <div
+            class="pointer-events-none absolute inset-x-0 bottom-0 h-0.5 bg-pri transition-transform duration-300"
+            :class="isFocus ? 'scale-x-full' : 'scale-x-0'"></div>
+    </label>
+</template>
