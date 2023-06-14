@@ -6,7 +6,7 @@ const create = useCreate()
 
 <template>
     <div class="flex justify-end gap-6 p-4">
-        <TheButton type="outline" @click="create.$reset" icon="icon-[solar--restart-line-duotone]">
+        <TheButton type="outline" @click="create.reset" icon="icon-[solar--restart-line-duotone]">
             重置
         </TheButton>
         <TheButton

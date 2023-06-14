@@ -1,15 +1,22 @@
 import type { ListMeta } from '@/models'
-import { SeekerDB } from '@/utils/database'
 
 import { defineStore } from 'pinia'
 import { ref } from 'vue'
+import { SeekerDB } from '@/utils/database'
 
 export const useMeta = defineStore(
     'meta',
     () => {
         const all = ref<ListMeta[]>([])
 
-        return { all }
+        async function star(listId: string) {
+            const db = await SeekerDB.init()
+            const star = await db.accessList(listId).star()
+            const index = all.value.findIndex((lm: ListMeta) => lm.id === listId)
+            if (index !== -1) all.value[index].star = star
+        }
+
+        return { all, star }
     },
     {
         initialLoad: {

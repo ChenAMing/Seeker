@@ -1,11 +1,28 @@
 import { defineStore } from 'pinia'
+import { ref } from 'vue'
+import { useRouter } from 'vue-router'
+import { SeekerDB } from '@/utils/database'
+import { useMeta } from '..'
 
-export const useCreate = defineStore('create', {
-    state: () => ({
-        name: '',
-        description: '',
-    }),
-    actions: {
-        confirm() {},
-    },
+export const useCreate = defineStore('create', () => {
+    const meta = useMeta()
+    const router = useRouter()
+
+    const name = ref<string>('')
+    const description = ref<string>('')
+
+    async function reset() {
+        name.value = ''
+        description.value = ''
+    }
+
+    async function confirm() {
+        const db = await SeekerDB.init()
+        const listMeta = await db.createList(name.value, description.value, 'normal')
+        meta.all.push(listMeta)
+        router.push({ name: 'settings' })
+        reset()
+    }
+
+    return { name, description, reset, confirm }
 })
