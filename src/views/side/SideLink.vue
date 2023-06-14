@@ -19,8 +19,9 @@ function go(name: 'create' | 'settings') {
             @click="go('create')"
             class="flex h-8 items-center gap-6 rounded px-3 transition-colors duration-300 hover:bg-mask active:bg-mask-act"
             :class="{ 'pointer-events-none bg-pri text-on-pri': route.name === 'create' }">
-            <span class="icon-[solar--add-circle-broken] !h-4 !w-4"></span>
-            <span> 新建 </span>
+            <span
+                class="icon-[solar--add-circle-broken] !h-4 !w-4 transition-colors duration-300"></span>
+            <span class="transition-colors duration-300"> 新建 </span>
         </button>
 
         <button
@@ -28,8 +29,9 @@ function go(name: 'create' | 'settings') {
             @click="go('settings')"
             class="flex h-8 items-center gap-6 rounded px-3 transition-colors duration-300 hover:bg-mask active:bg-mask-act"
             :class="{ 'pointer-events-none bg-pri text-on-pri': route.name === 'settings' }">
-            <span class="icon-[solar--settings-broken] !h-4 !w-4"></span>
-            <span> 设置 </span>
+            <span
+                class="icon-[solar--settings-broken] !h-4 !w-4 transition-colors duration-300"></span>
+            <span class="transition-colors duration-300"> 设置 </span>
         </button>
     </div>
 </template>
