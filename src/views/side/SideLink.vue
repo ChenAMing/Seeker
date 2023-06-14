@@ -6,9 +6,14 @@ const route = useRoute()
 const router = useRouter()
 const side = useSide()
 
+const sideLinks = [
+    { name: 'create', text: '新建', icon: 'icon-[solar--add-circle-broken]' },
+    { name: 'settings', text: '设置', icon: 'icon-[solar--settings-broken]' },
+] as const
+
 function go(name: 'create' | 'settings') {
     router.push({ name })
-    side.show = false
+    if (side.show) side.show = false
 }
 </script>
 
@@ -16,22 +21,19 @@ function go(name: 'create' | 'settings') {
     <div class="flex flex-col gap-1 p-1">
         <button
             type="button"
-            @click="go('create')"
+            v-for="link in sideLinks"
+            :key="link.name"
+            @click="go(link.name)"
             class="flex h-8 items-center gap-6 rounded px-3 transition-colors duration-300 hover:bg-mask active:bg-mask-act"
-            :class="{ 'pointer-events-none bg-pri text-on-pri': route.name === 'create' }">
+            :class="{ 'pointer-events-none bg-pri': route.name === link.name }">
             <span
-                class="icon-[solar--add-circle-broken] !h-4 !w-4 transition-colors duration-300"></span>
-            <span class="transition-colors duration-300"> 新建 </span>
-        </button>
-
-        <button
-            type="button"
-            @click="go('settings')"
-            class="flex h-8 items-center gap-6 rounded px-3 transition-colors duration-300 hover:bg-mask active:bg-mask-act"
-            :class="{ 'pointer-events-none bg-pri text-on-pri': route.name === 'settings' }">
+                class="!h-4 !w-4 transition-colors duration-150"
+                :class="[{ 'text-on-pri': route.name === link.name }, link.icon]"></span>
             <span
-                class="icon-[solar--settings-broken] !h-4 !w-4 transition-colors duration-300"></span>
-            <span class="transition-colors duration-300"> 设置 </span>
+                class="transition-colors duration-150"
+                :class="{ 'text-on-pri': route.name === link.name }">
+                {{ link.text }}
+            </span>
         </button>
     </div>
 </template>

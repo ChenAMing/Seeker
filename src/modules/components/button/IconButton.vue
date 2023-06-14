@@ -17,7 +17,7 @@ const handleClick = () => emit('click')
             { 'pointer-events-none text-mask-act': disabled },
         ]">
         <span
-            class="group-active:text-pri' !h-5 !w-5 transition-all duration-300 group-active:scale-75 group-active:text-otl"
+            class="group-active:text-pri' !h-5 !w-5 transition-all duration-150 group-active:scale-75 group-active:text-otl"
             :class="icon"></span>
     </button>
 </template>

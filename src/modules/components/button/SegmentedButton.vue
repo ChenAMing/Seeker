@@ -20,7 +20,9 @@ function select(value: string) {
             @click="select(o.value)"
             class="rounded-sm px-6 text-sm transition-colors duration-300"
             :class="o.value === modelValue ? 'bg-pri text-on-pri' : 'bg-transparent'">
-            {{ o.text }}
+            <span class="pointer-events-none transition-colors duration-150">
+                {{ o.text }}
+            </span>
         </button>
     </div>
 </template>

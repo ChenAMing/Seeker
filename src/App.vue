@@ -1,3 +1,7 @@
+<script lang="ts" setup>
+import { useTransition } from './composables'
+</script>
+
 <template>
     <div
         id="seeker"
@@ -5,7 +9,11 @@
         <RouterView name="common" />
         <RouterView name="head" />
         <RouterView name="side" />
-        <RouterView name="content" />
+        <RouterView name="content" #="{ route, Component }">
+            <Transition v-bind="useTransition('fade')">
+                <component :is="Component" :key="route.name" />
+            </Transition>
+        </RouterView>
     </div>
 </template>
 
