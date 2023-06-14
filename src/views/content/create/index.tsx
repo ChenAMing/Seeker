@@ -1,3 +1,11 @@
+import CreateDescription from './CreateDescription.vue'
+import CreateName from './CreateName.vue'
+
 export default {
-    render: () => <div></div>,
+    render: () => (
+        <div class='mx-auto flex max-w-[40rem] flex-col'>
+            <CreateName />
+            <CreateDescription />
+        </div>
+    ),
 }
