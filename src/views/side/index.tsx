@@ -1,9 +1,9 @@
 import { Transition, withModifiers } from 'vue'
 import { useSide } from '@/stores'
 import { useTransition } from '@/composables'
-import SideDir from './SideDir.vue'
 import SideLink from './SideLink.vue'
 import SideLogo from './SideLogo.vue'
+import SideMeta from './SideMeta.vue'
 
 export default {
     setup() {
@@ -26,7 +26,7 @@ export default {
                     {/* Include */}
                     <SideLogo />
                     <SideLink />
-                    <SideDir />
+                    <SideMeta />
                 </div>
             </div>
         )
