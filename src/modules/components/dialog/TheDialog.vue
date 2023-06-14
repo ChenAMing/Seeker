@@ -39,7 +39,7 @@ defineSlots<{
                 <Transition v-bind="useTransition('modal')">
                     <div
                         v-if="show"
-                        class="flex w-96 max-w-[90vw] flex-col gap-4 rounded-xl border bg-ctr-pri p-6">
+                        class="flex w-96 max-w-[90vw] flex-col gap-4 rounded-xl bg-ctr-pri p-6">
                         <div class="ml-2 text-xl text-on-ctr-pri">{{ title }}</div>
                         <div><slot></slot></div>
                         <div class="flex items-center justify-end gap-4 pt-2">
