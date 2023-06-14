@@ -25,12 +25,12 @@ function go(name: 'create' | 'settings') {
             :key="link.name"
             @click="go(link.name)"
             class="flex h-8 items-center gap-6 rounded px-3 transition-colors duration-300 hover:bg-mask active:bg-mask-act"
-            :class="{ 'pointer-events-none bg-pri': route.name === link.name }">
+            :class="{ 'pointer-events-none bg-pri hover:bg-pri': route.name === link.name }">
             <span
-                class="!h-4 !w-4 transition-colors duration-150"
+                class="pointer-events-none !h-4 !w-4 transition-colors duration-150"
                 :class="[{ 'text-on-pri': route.name === link.name }, link.icon]"></span>
             <span
-                class="transition-colors duration-150"
+                class="pointer-events-none transition-colors duration-150"
                 :class="{ 'text-on-pri': route.name === link.name }">
                 {{ link.text }}
             </span>
