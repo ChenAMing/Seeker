@@ -7,8 +7,8 @@ const router = useRouter()
 const side = useSide()
 
 const sideLinks = [
-    { name: 'create', text: '新建', icon: 'icon-[solar--add-circle-broken]' },
-    { name: 'settings', text: '设置', icon: 'icon-[solar--settings-broken]' },
+    { name: 'create', text: '新建', icon: 'icon-[solar--widget-add-bold-duotone]' },
+    { name: 'settings', text: '设置', icon: 'icon-[solar--settings-bold-duotone]' },
 ] as const
 
 function go(name: 'create' | 'settings') {

@@ -5,9 +5,9 @@ import { useSettings } from '@/stores'
 const settings = useSettings()
 
 const options = [
-    { value: 'light', text: '明亮' },
-    { value: 'auto', text: '跟随系统' },
-    { value: 'dark', text: '黯淡' },
+    { value: 'light', text: '明亮', icon: 'icon-[solar--sun-2-bold-duotone]' },
+    { value: 'auto', text: '跟随系统', icon: '' },
+    { value: 'dark', text: '黯淡', icon: 'icon-[solar--moon-bold-duotone]' },
 ]
 </script>
 

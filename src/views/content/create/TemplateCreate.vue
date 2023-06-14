@@ -5,7 +5,7 @@ defineProps<{ title: string; required?: boolean }>()
 <template>
     <div class="flex flex-col gap-4 p-4">
         <div
-            class="px-1"
+            class="px-1 text-base"
             :class="{ [`after:ml-1 after:text-red-500 after:content-['*']`]: required }">
             {{ title }}
         </div>

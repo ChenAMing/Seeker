@@ -5,5 +5,5 @@ const side = useSide()
 </script>
 
 <template>
-    <IconButton icon="icon-[ri--menu-2-fill]" @click="side.toggle" class="z-30" />
+    <IconButton icon="icon-[solar--hamburger-menu-line-duotone]" @click="side.toggle" class="z-30" />
 </template>
