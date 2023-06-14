@@ -10,6 +10,7 @@ declare module '@vue/runtime-core' {
         TheButton: typeof Components.TheButton
         TheDialog: typeof Components.TheDialog
         TextInput: typeof Components.TextInput
+        ListState: typeof Components.ListState
     }
 }
 
