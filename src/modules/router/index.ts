@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { globalGuardEach } from './guards/global'
 import common from '@/views/common'
 import content from '@/views/content'
 import head from '@/views/head'
@@ -33,5 +34,7 @@ const router = createRouter({
         },
     ],
 })
+
+router.beforeEach(globalGuardEach)
 
 export default router
