@@ -1,7 +1,4 @@
-/**
- * @param use 没有的时候设置为跟随系统
- */
-export const useDarkMode = (function () {
+export const useTheme = (function () {
     const media = window.matchMedia('(prefers-color-scheme: dark)')
 
     function applyDark(apply: boolean) {
@@ -9,18 +6,20 @@ export const useDarkMode = (function () {
         else document.documentElement.classList.remove('dark')
     }
 
-    return function (use?: boolean) {
-        if (use) {
-            media.onchange = null
-            applyDark(true)
-        } else {
-            if (typeof use === 'undefined') {
-                applyDark(window.matchMedia('(prefers-color-scheme:dark)').matches)
-                media.onchange = (e: MediaQueryListEvent) => applyDark(e.matches)
-            } else {
+    return function (use: 'light' | 'auto' | 'dark') {
+        switch (use) {
+            case 'light':
                 media.onchange = null
                 applyDark(false)
-            }
+                break
+            case 'auto':
+                applyDark(window.matchMedia('(prefers-color-scheme:dark)').matches)
+                media.onchange = (e: MediaQueryListEvent) => applyDark(e.matches)
+                break
+            case 'dark':
+                media.onchange = null
+                applyDark(true)
+                break
         }
     }
 })()
