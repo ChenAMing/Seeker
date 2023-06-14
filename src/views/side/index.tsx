@@ -1,6 +1,8 @@
 import { Transition, withModifiers } from 'vue'
 import { useSide } from '@/stores'
 import { useTransition } from '@/composables'
+import SideLink from './SideLink.vue'
+import SideLogo from './SideLogo.vue'
 
 export default {
     setup() {
@@ -21,7 +23,8 @@ export default {
                         side.show ? 'max-md:translate-x-0' : 'max-md:-translate-x-full',
                     ]}>
                     {/* Include */}
-
+                    <SideLogo />
+                    <SideLink />
                 </div>
             </div>
         )
