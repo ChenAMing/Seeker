@@ -7,8 +7,8 @@ export const useTransition = (() => {
         fade: {
             enterFromClass: 'opacity-0',
             leaveToClass: 'opacity-0',
-            enterActiveClass: 'transition-opacity duration-300',
-            leaveActiveClass: 'transition-opacity duration-300',
+            enterActiveClass: 'transition-opacity duration-300 ease-in-out',
+            leaveActiveClass: 'transition-opacity duration-300 ease-in-out',
         },
     } satisfies Transitions
 

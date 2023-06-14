@@ -1,5 +1,7 @@
 <template>
-    <div id="seeker" class="grid h-100vh w-100vw bg-sur text-on-sur transition-colors duration-300">
+    <div
+        id="seeker"
+        class="grid h-100vh w-100vw bg-sur text-sm text-on-sur transition-colors duration-300">
         <RouterView name="common" />
         <RouterView name="head" />
         <RouterView name="side" />
@@ -10,10 +12,9 @@
 <style>
 #seeker {
     grid-template:
-        's h' 3.5rem
-        's c' 1fr
-        / 15rem 1fr;
-    grid-template-rows: 3.5rem 1fr;
+        's h'
+        's c';
+    grid-template-rows: 3rem 1fr;
     grid-template-columns: 15rem 1fr;
 }
 
