@@ -1,3 +1,14 @@
+import { useSettings } from '@/stores'
+
 export default {
-    render: () => <></>,
+    mounted() {
+        /*
+         * 预先加载
+         */
+        useSettings()
+    },
+    render: () => (
+        <>
+        </>
+    ),
 }

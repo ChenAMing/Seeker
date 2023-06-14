@@ -10,7 +10,7 @@ declare module 'pinia' {
             append?: string
         }
 
-        initialLoad?: {
+        onInitialLoad?: {
             callback: (store?: Store) => void
         }
     }

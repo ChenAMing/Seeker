@@ -19,7 +19,7 @@ export const useMeta = defineStore(
         return { all, star }
     },
     {
-        initialLoad: {
+        onInitialLoad: {
             callback: async store => {
                 const db = await SeekerDB.init()
                 const allListMeta = await db.accessMeta().getAll()
