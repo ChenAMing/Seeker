@@ -1,15 +1,23 @@
 <script lang="ts" setup>
+import { useRoute } from 'vue-router'
 import { useLive } from '@/stores'
+import DetailInfo from './__include__/DetailInfo.vue'
 import DetailRemove from './__include__/DetailRemove.vue'
 import DetailStar from './__include__/DetailStar.vue'
+import DetailUpdate from './__include__/DetailUpdate.vue'
 
+const route = useRoute()
 const live = useLive()
 </script>
 
 <template>
-    <TheDrawerCard title="详细信息" :type="live.listMeta?.star ? 'primary' : 'outline'">
+    <TheDrawerCard
+        v-if="route.name === 'list'"
+        :type="live.listMeta?.star ? 'primary' : 'outline'"
+        title="详细信息">
         <template #widget="{ show, toggle }">
             <IconButton
+                :disabled="route.name !== 'list'"
                 @click="toggle"
                 :icon="
                     show
@@ -21,7 +29,10 @@ const live = useLive()
 
         <template #action>
             <DetailRemove />
+            <DetailUpdate />
             <DetailStar />
         </template>
+
+        <DetailInfo />
     </TheDrawerCard>
 </template>

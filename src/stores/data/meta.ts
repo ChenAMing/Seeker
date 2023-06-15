@@ -36,7 +36,17 @@ export const useMeta = defineStore(
             if (index !== -1) all.value.splice(index, 1)
         }
 
-        return { all, allStar, allNoStar, star, remove }
+        async function update(listId: string, newName: string, newDescription: string) {
+            if (newName.length !== 0) {
+                const db = await SeekerDB.init()
+                const updatePart = { name: newName, description: newDescription }
+                await db.accessMeta().update(listId, updatePart)
+                const index = all.value.findIndex((listMeta: ListMeta) => listMeta.id === listId)
+                if (index) all.value[index] = Object.assign(all.value[index], updatePart)
+            }
+        }
+
+        return { all, allStar, allNoStar, star, remove, update }
     },
     {
         onInitialLoad: {

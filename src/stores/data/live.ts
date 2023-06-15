@@ -35,6 +35,13 @@ export const useLive = defineStore('live', () => {
         router.push({ name: 'app' })
     }
 
+    async function update(name: string, description: string) {
+        if (listMeta.value && listMeta.value.id) {
+            await meta.update(listMeta.value.id, name, description)
+            router.push({ name: 'list', query: { id: listMeta.value.id } })
+        }
+    }
+
     /*
      * Item
      */
@@ -46,5 +53,5 @@ export const useLive = defineStore('live', () => {
         }
     }
 
-    return { listMeta, data, star, remove, addItem }
+    return { listMeta, data, star, remove, update, addItem }
 })

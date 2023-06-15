@@ -38,9 +38,14 @@ export class SeekerDB {
 
     accessMeta() {
         return {
-            get: async (id: string) => await this.meta.accessMeta().get(id),
+            get: async (listId: string) => await this.meta.accessMeta().get(listId),
 
             getAll: async () => await this.meta.accessMeta().getAll(),
+
+            update: async (listId: string, updateMetaPart: Partial<ListMeta>) => {
+                const listMeta = await this.meta.accessMeta().get(listId)
+                await this.meta.accessMeta().update(Object.assign(listMeta, updateMetaPart))
+            },
         }
     }
 
