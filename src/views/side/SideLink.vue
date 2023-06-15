@@ -6,6 +6,7 @@ const route = useRoute()
 const side = useSide()
 
 const sideLinks = [
+    { name: 'home', text: '主页', icon: 'icon-[solar--home-bold-duotone]' },
     { name: 'create', text: '新建', icon: 'icon-[solar--widget-add-bold-duotone]' },
     { name: 'settings', text: '设置', icon: 'icon-[solar--settings-bold-duotone]' },
 ] as const

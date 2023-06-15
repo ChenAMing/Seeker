@@ -12,7 +12,14 @@ const router = createRouter({
             path: '/',
             name: 'app',
             components: { common, head, side, content },
+            redirect: { name: 'home' },
             children: [
+                {
+                    path: '/home',
+                    name: 'home',
+                    component: () => import('@/views/content/home'),
+                    meta: { title: '主页' },
+                },
                 {
                     path: '/create',
                     name: 'create',
@@ -20,15 +27,15 @@ const router = createRouter({
                     meta: { title: '新建清单' },
                 },
                 {
-                    path: '/list',
-                    name: 'list',
-                    component: () => import('@/views/content/list'),
-                },
-                {
                     path: '/settings',
                     name: 'settings',
                     component: () => import('@/views/content/settings'),
                     meta: { title: '设置' },
+                },
+                {
+                    path: '/list',
+                    name: 'list',
+                    component: () => import('@/views/content/list'),
                 },
             ],
         },
