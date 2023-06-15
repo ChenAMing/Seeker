@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
 
-defineProps<{ icon: string; title: string }>()
+defineProps<{ title: string; icon: string; placeholder?: boolean }>()
 
 const collapse = ref<boolean>(true)
 
@@ -22,6 +22,15 @@ const toggle = () => (collapse.value = !collapse.value)
 
         <TransitionCollapse>
             <div class="relative overflow-hidden transition-all duration-300" v-show="!collapse">
+                <!-- Placeholder -->
+                <div
+                    v-if="placeholder"
+                    class="pointer-events-none mx-1 flex h-8 items-center gap-6 px-3 text-on-sur-var">
+                    <span
+                        class="transition-color icon-[solar--close-square-bold-duotone] !h-4 !min-w-[1rem]"></span>
+                    <span class="transition-color"> 空空如也 </span>
+                </div>
+                <!-- Slot -->
                 <slot></slot>
             </div>
         </TransitionCollapse>
