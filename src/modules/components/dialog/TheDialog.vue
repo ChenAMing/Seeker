@@ -2,7 +2,7 @@
 import { ref } from 'vue'
 import { useTransition } from '@/composables'
 
-defineProps<{ title: string; disabledConfirm?: boolean }>()
+defineProps<{ title: string; disabledConfirm?: boolean; error?: boolean }>()
 
 const show = ref<boolean>()
 
@@ -39,13 +39,16 @@ defineSlots<{
                 <Transition v-bind="useTransition('modal')">
                     <div
                         v-if="show"
-                        class="flex w-96 max-w-[90vw] flex-col gap-4 rounded-xl bg-ctr-pri p-6">
-                        <div class="ml-2 text-xl text-on-ctr-pri">{{ title }}</div>
-                        <div><slot></slot></div>
+                        class="flex w-96 max-w-[90vw] flex-col gap-4 rounded-2xl p-6"
+                        :class="error ? 'bg-err text-on-err' : 'bg-ctr-pri text-on-ctr-pri'">
+                        <div class="ml-2 text-xl">
+                            {{ title }}
+                        </div>
+                        <div class="text-sm"><slot></slot></div>
                         <div class="flex items-center justify-end gap-4 pt-2">
                             <TheButton type="text" @click="handleCancel"> 取消 </TheButton>
                             <TheButton
-                                type="primary"
+                                :type="error ? 'text' : 'primary'"
                                 @click="handleConfirm"
                                 :disabled="disabledConfirm">
                                 确认

@@ -9,8 +9,8 @@ const { type = 'secondary', disabled } = defineProps<{
 const mapType = {
     primary: 'bg-pri text-on-pri border-transparent',
     secondary: 'bg-sec text-on-sec border-transparent',
-    outline: 'bg-transparent text-on-sec border-otl',
-    text: 'bg-transparent text-on-sec border-transparent',
+    outline: 'bg-transparent border-otl',
+    text: 'bg-transparent border-transparent',
 }
 
 const mapTypeDisabled = {
