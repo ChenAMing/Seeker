@@ -15,7 +15,7 @@ export class SeekerUser {
     }
 
     async remove(id: string) {
-        await this.idb.act(db => db.createObjectStore(id, { keyPath: 'id' }))
+        await this.idb.act(db => db.deleteObjectStore(id))
     }
 
     access(listName: string) {

@@ -1,13 +1,14 @@
 import type { ListItem, ListMeta } from '@/models'
 
 import { defineStore } from 'pinia'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { computed, ref, watchEffect } from 'vue'
 import { SeekerDB } from '@/utils/database'
 import { useMeta } from '..'
 
 export const useLive = defineStore('live', () => {
     const route = useRoute()
+    const router = useRouter()
     const meta = useMeta()
 
     const listMeta = computed<ListMeta | undefined>(() => {
@@ -29,6 +30,11 @@ export const useLive = defineStore('live', () => {
         if (listMeta.value && listMeta.value.id) await meta.star(listMeta.value.id)
     }
 
+    async function remove() {
+        if (listMeta.value && listMeta.value.id) await meta.remove(listMeta.value.id)
+        router.push({ name: 'app' })
+    }
+
     /*
      * Item
      */
@@ -40,5 +46,5 @@ export const useLive = defineStore('live', () => {
         }
     }
 
-    return { listMeta, data, star, addItem }
+    return { listMeta, data, star, remove, addItem }
 })

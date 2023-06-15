@@ -31,9 +31,9 @@ export class SeekerDB {
         return listMeta
     }
 
-    async removeList(id: string) {
-        await this.user.remove(id)
-        await this.meta.accessMeta().delete(id)
+    async removeList(listId: string) {
+        await this.user.remove(listId)
+        await this.meta.accessMeta().delete(listId)
     }
 
     accessMeta() {

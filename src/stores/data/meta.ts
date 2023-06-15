@@ -29,7 +29,14 @@ export const useMeta = defineStore(
             if (index !== -1) all.value[index].star = star
         }
 
-        return { all, allStar, allNoStar, star }
+        async function remove(listId: string) {
+            const db = await SeekerDB.init()
+            await db.removeList(listId)
+            const index = all.value.findIndex((lm: ListMeta) => lm.id === listId)
+            if (index !== -1) all.value.splice(index, 1)
+        }
+
+        return { all, allStar, allNoStar, star, remove }
     },
     {
         onInitialLoad: {
