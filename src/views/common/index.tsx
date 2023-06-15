@@ -1,4 +1,5 @@
 import { useSettings } from '@/stores'
+import CommonMessage from './CommonMessage.vue'
 
 export default {
     mounted() {
@@ -9,6 +10,7 @@ export default {
     },
     render: () => (
         <>
+            <CommonMessage />
         </>
     ),
 }

@@ -4,10 +4,13 @@ import { defineStore } from 'pinia'
 import { computed, ref } from 'vue'
 import { SeekerDB } from '@/utils/database'
 import { useSortArray } from '@/composables'
+import { useMessage } from '..'
 
 export const useMeta = defineStore(
     'meta',
     () => {
+        const message = useMessage()
+
         const all = ref<ListMeta[]>([])
 
         const allStar = computed(() => {
@@ -33,7 +36,9 @@ export const useMeta = defineStore(
             const db = await SeekerDB.init()
             await db.removeList(listId)
             const index = all.value.findIndex((lm: ListMeta) => lm.id === listId)
+            const removedListName = all.value[index].name
             if (index !== -1) all.value.splice(index, 1)
+            message.pop('error', `⚠️ ${removedListName} 清单已被删除`)
         }
 
         async function update(listId: string, newName: string, newDescription: string) {
