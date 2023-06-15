@@ -1,8 +1,9 @@
 <script lang="ts" setup>
-import { useLive } from '@/stores'
+import { useHead, useLive } from '@/stores'
 import { reactive } from 'vue'
 
 const live = useLive()
+const head = useHead()
 
 const info = reactive<{
     name: string
@@ -24,6 +25,7 @@ function clearInfo() {
 
 function confirmEdit() {
     live.update(info.name, info.description)
+    head.modifyTitle(info.name)
     clearInfo()
 }
 </script>

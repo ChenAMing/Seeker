@@ -7,7 +7,7 @@ const { type = 'secondary' } = defineProps<{
     title: string
 }>()
 
-const show = ref<boolean>()
+const show = ref<boolean>(false)
 
 const toggle = () => (show.value = !show.value)
 

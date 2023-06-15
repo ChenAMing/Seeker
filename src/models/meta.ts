@@ -1,6 +1,6 @@
 export enum ListEnum {
-    normal = '默认',
-    colors = '颜色',
+    standard = '标准',
+    color = '颜色',
 }
 
 export type ListType = keyof typeof ListEnum
