@@ -11,8 +11,8 @@ export const useTransition = (() => {
             leaveActiveClass: 'transition-opacity duration-300 ease-in-out',
         },
         modal: {
-            enterFromClass: 'opacity-0 -translate-y-1/2 scale-y-50',
-            leaveToClass: 'opacity-0 -translate-y-1/2 scale-y-50',
+            enterFromClass: 'opacity-0 -translate-y-3/4 scale-y-50',
+            leaveToClass: 'opacity-0 -translate-y-3/4 scale-y-50',
             enterActiveClass: 'transition duration-300 ease-out',
             leaveActiveClass: 'transition duration-300 ease-in',
         },
