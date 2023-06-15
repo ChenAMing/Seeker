@@ -4,6 +4,8 @@ import SegmentedButton from './button/SegmentedButton.vue'
 import TheButton from './button/TheButton.vue'
 import TheCollapse from './collapse/TheCollapse.vue'
 import TheDialog from './dialog/TheDialog.vue'
+import FragmentBook from './fragment/FragmentBook.vue'
+import TheFragment from './fragment/TheFragment.vue'
 import TextInput from './input/TextInput.vue'
 import Navigation from './navigation/Navigation.vue'
 import NavigationItem from './navigation/NavigationItem.vue'
@@ -17,6 +19,8 @@ export {
     TheButton,
     TheCollapse,
     TheDialog,
+    FragmentBook,
+    TheFragment,
     TextInput,
     Navigation,
     NavigationItem,
