@@ -1,7 +1,5 @@
-<script lang='ts' setup>
-
-</script>
+<script lang="ts" setup></script>
 
 <template>
-    <div class="h-12"></div>
+    <div class="min-h-[3rem]"></div>
 </template>

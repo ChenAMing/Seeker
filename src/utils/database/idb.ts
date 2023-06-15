@@ -25,7 +25,10 @@ export class IDB {
             this.inst.close()
             const req = indexedDB.open(this.name, this.ver + 1)
             req.onsuccess = () => (this.inst = req.result)
-            req.onupgradeneeded = () => resolve(cb(req.result))
+            req.onupgradeneeded = () => {
+                this.ver++
+                resolve(cb(req.result))
+            }
             req.onerror = () => reject()
         })
     }

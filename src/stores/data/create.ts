@@ -20,7 +20,7 @@ export const useCreate = defineStore('create', () => {
         const db = await SeekerDB.init()
         const listMeta = await db.createList(name.value, description.value, 'normal')
         meta.all.push(listMeta)
-        router.push({ name: 'settings' })
+        router.push({ name: 'list', query: { id: listMeta.id } })
         reset()
     }
 
