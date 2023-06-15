@@ -11,7 +11,7 @@ export default {
         const side = useSide()
 
         return () => (
-            <div id='seeker-sidebar' class='relative'>
+            <aside id='seeker-sidebar' class='relative'>
                 <Transition {...useTransition('fade')}>
                     <div
                         onClick={withModifiers(side.toggle, ['self'])}
@@ -30,7 +30,7 @@ export default {
                     <SideStar />
                     <SideMeta />
                 </div>
-            </div>
+            </aside>
         )
     },
 }
