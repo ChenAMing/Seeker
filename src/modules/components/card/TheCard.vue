@@ -16,11 +16,11 @@ defineSlots<{ action(props: {}): any; default(props: {}): any }>()
 <template>
     <div class="flex flex-col gap-4 rounded-2xl border p-6" :class="mapType[type]">
         <div class="flex">
-            <span class="flex-1 text-xl">{{ title }}</span>
-            <span><slot name="action"></slot></span>
+            <span class="text-xl">{{ title }}</span>
+            <span class="flex flex-1 justify-end gap-1"><slot name="action"></slot></span>
         </div>
 
-        <div>
+        <div class="overflow-y-hidden hover:overflow-y-auto">
             <slot></slot>
         </div>
     </div>
