@@ -4,13 +4,16 @@ import { useTransition } from '@/composables'
 
 defineProps<{ title: string; disabledConfirm?: boolean; error?: boolean }>()
 
+const emit = defineEmits<{ afterOpen: []; confirm: []; cancel: [] }>()
+
 const show = ref<boolean>()
 
-const open = () => (show.value = true)
+const open = () => {
+    show.value = true
+    emit('afterOpen')
+}
 
 const close = () => (show.value = false)
-
-const emit = defineEmits<{ confirm: []; cancel: [] }>()
 
 function handleConfirm() {
     emit('confirm')

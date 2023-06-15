@@ -21,7 +21,7 @@ function handleClick() {
         class="group w-10 rounded transition-colors duration-300 hover:bg-mask focus:bg-mask active:bg-mask-more"
         :class="[
             lower ? 'h-7 px-2 py-1' : 'h-10 p-2',
-            error ? 'focus:text-err' : 'focus:text-pri',
+            error ? 'text-err focus:text-err' : 'focus:text-pri',
             { 'pointer-events-none text-mask-more': disabled },
         ]">
         <span
