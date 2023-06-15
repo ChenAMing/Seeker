@@ -10,9 +10,17 @@ export const useMeta = defineStore(
     () => {
         const all = ref<ListMeta[]>([])
 
-        const allStar = computed(() => all.value.filter((listMeta: ListMeta) => listMeta.star))
+        const allStar = computed(() => {
+            const result = all.value.filter((listMeta: ListMeta) => listMeta.star)
+            if (result.length !== 0) useSortArray(result, { key: 'dateCreated' })
+            return result
+        })
 
-        const allNoStar = computed(() => all.value.filter((listMeta: ListMeta) => !listMeta.star))
+        const allNoStar = computed(() => {
+            const result = all.value.filter((listMeta: ListMeta) => !listMeta.star)
+            if (result.length !== 0) useSortArray(result, { key: 'dateCreated' })
+            return result
+        })
 
         async function star(listId: string) {
             const db = await SeekerDB.init()
@@ -28,7 +36,6 @@ export const useMeta = defineStore(
             callback: async store => {
                 const db = await SeekerDB.init()
                 const allListMeta = await db.accessMeta().getAll()
-                useSortArray(allListMeta, { key: 'dateCreated' })
                 store!.$patch(state => state.all.push(...allListMeta))
             },
         },
