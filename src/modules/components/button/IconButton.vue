@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { useClassName } from '@/composables'
 
-defineProps<{ icon: string; error?: boolean; disabled?: boolean }>()
+defineProps<{ icon: string; error?: boolean; disabled?: boolean; lower?: boolean }>()
 
 const emit = defineEmits<{ click: [] }>()
 
@@ -18,13 +18,14 @@ function handleClick() {
         type="button"
         @click="handleClick"
         :disabled="disabled"
-        class="group h-10 w-10 rounded p-2 transition-colors duration-300 hover:bg-mask focus:bg-mask active:bg-mask-more"
+        class="group w-10 rounded transition-colors duration-300 hover:bg-mask focus:bg-mask active:bg-mask-more"
         :class="[
+            lower ? 'h-7 px-2 py-1' : 'h-10 p-2',
             error ? 'focus:text-err' : 'focus:text-pri',
             { 'pointer-events-none text-mask-more': disabled },
         ]">
         <span
-            class="!h-6 !w-6 transition-all duration-150 group-active:scale-75 group-active:text-otl"
-            :class="[icon, className]"></span>
+            class="transition-all duration-150 group-active:scale-75 group-active:text-otl"
+            :class="[icon, className, lower ? '!h-5 !w-5' : '!h-6 !w-6']"></span>
     </button>
 </template>
