@@ -26,7 +26,7 @@ defineSlots<{
 
         <Transition enter-from-class="translate-x-[150%]" leave-to-class="translate-x-[150%]">
             <TheCard
-                class="fixed right-4 top-14 z-20 max-h-[calc(100vh_-_4.5rem)] w-96 max-w-[90vw] transition duration-300"
+                class="fixed right-4 top-14 z-20 max-h-[calc(100vh_-_4.5rem)] w-96 max-w-[90vw] shadow-light transition duration-300"
                 v-show="show"
                 :type="type"
                 :title="title">
