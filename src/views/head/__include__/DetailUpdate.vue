@@ -29,7 +29,12 @@ function confirmEdit() {
 </script>
 
 <template>
-    <TheDialog title="编辑清单" @after-open="getInfo" @confirm="confirmEdit" @cancel="clearInfo">
+    <TheDialog
+        title="编辑清单"
+        @after-open="getInfo"
+        @confirm="confirmEdit"
+        @cancel="clearInfo"
+        :disabled-confirm="info.name.length === 0">
         <template #widget="{ open }">
             <IconButton icon="icon-[solar--pen-2-bold-duotone]" lower @click="open" />
         </template>
