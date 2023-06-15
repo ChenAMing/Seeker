@@ -8,6 +8,7 @@ declare module '@vue/runtime-core' {
         IconButton: typeof Components.IconButton
         SegmentedButton: typeof Components.SegmentedButton
         TheButton: typeof Components.TheButton
+        TheCollapse: typeof Components.TheCollapse
         TheDialog: typeof Components.TheDialog
         TextInput: typeof Components.TextInput
         Navigation: typeof Components.Navigation
