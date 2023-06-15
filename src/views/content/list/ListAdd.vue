@@ -7,7 +7,7 @@ const live = useLive()
 const newValue = ref('')
 
 function confirmAdd() {
-    live.add(newValue.value)
+    live.addItem(newValue.value)
     newValue.value = ''
 }
 </script>

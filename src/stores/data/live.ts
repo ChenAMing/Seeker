@@ -22,11 +22,17 @@ export const useLive = defineStore('live', () => {
         } else data.value = []
     })
 
+    /*
+     * List
+     */
     async function star() {
         if (listMeta.value && listMeta.value.id) await meta.star(listMeta.value.id)
     }
 
-    async function add(value: string) {
+    /*
+     * Item
+     */
+    async function addItem(value: string) {
         if (listMeta.value && listMeta.value.id && route.name === 'list' && value.length !== 0) {
             const db = await SeekerDB.init()
             const listItem: ListItem = await db.accessList(listMeta.value.id).insert(value)
@@ -34,5 +40,5 @@ export const useLive = defineStore('live', () => {
         }
     }
 
-    return { listMeta, data, star, add }
+    return { listMeta, data, star, addItem }
 })

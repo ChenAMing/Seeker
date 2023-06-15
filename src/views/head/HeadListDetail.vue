@@ -1,5 +1,7 @@
 <script lang="ts" setup>
 import { useLive } from '@/stores'
+import DetailRemove from './__include__/DetailRemove.vue'
+import DetailStar from './__include__/DetailStar.vue'
 
 const live = useLive()
 </script>
@@ -18,14 +20,8 @@ const live = useLive()
         </template>
 
         <template #action>
-            <IconButton
-                :icon="
-                    live.listMeta?.star
-                        ? 'icon-[solar--star-bold-duotone]'
-                        : 'icon-[solar--star-broken]'
-                "
-                lower
-                @click="live.star" />
+            <DetailRemove />
+            <DetailStar />
         </template>
     </TheDrawerCard>
 </template>
