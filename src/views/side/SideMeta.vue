@@ -8,12 +8,15 @@ const side = useSide()
 </script>
 
 <template>
-    <TheCollapse icon="icon-[solar--widget-bold-duotone]" title="全部清单">
+    <TheCollapse
+        title="清单"
+        icon="icon-[solar--widget-bold-duotone]"
+        :placeholder="meta.allNoStar.length === 0">
         <Navigation @after-go="side.show = false">
             <NavigationItem
                 type="secondary"
                 icon="icon-[solar--notes-minimalistic-bold-duotone]"
-                v-for="item in meta.all"
+                v-for="item in meta.allNoStar"
                 :key="item.id"
                 :selected="route.query.id === item.id"
                 :route-location="{ name: 'list', query: { id: item.id } }">

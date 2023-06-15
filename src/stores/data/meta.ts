@@ -1,7 +1,7 @@
 import type { ListMeta } from '@/models'
 
 import { defineStore } from 'pinia'
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { SeekerDB } from '@/utils/database'
 import { useSortArray } from '@/composables'
 
@@ -10,6 +10,10 @@ export const useMeta = defineStore(
     () => {
         const all = ref<ListMeta[]>([])
 
+        const allStar = computed(() => all.value.filter((listMeta: ListMeta) => listMeta.star))
+
+        const allNoStar = computed(() => all.value.filter((listMeta: ListMeta) => !listMeta.star))
+
         async function star(listId: string) {
             const db = await SeekerDB.init()
             const star = await db.accessList(listId).star()
@@ -17,7 +21,7 @@ export const useMeta = defineStore(
             if (index !== -1) all.value[index].star = star
         }
 
-        return { all, star }
+        return { all, allStar, allNoStar, star }
     },
     {
         onInitialLoad: {
