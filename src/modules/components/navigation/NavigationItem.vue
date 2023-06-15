@@ -28,7 +28,7 @@ const mapTypeSelectedText = {
             class="pointer-events-none !h-4 min-w-[1rem] transition-colors"
             :class="[icon, { [mapTypeSelectedText[type]]: selected }]"></span>
         <span
-            class="pointer-events-none transition-colors"
+            class="pointer-events-none truncate transition-colors"
             :class="{ [mapTypeSelectedText[type]]: selected }"
             ><slot></slot
         ></span>

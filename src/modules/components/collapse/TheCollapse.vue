@@ -13,7 +13,7 @@ const toggle = () => (collapse.value = !collapse.value)
         <button
             type="button"
             @click="toggle"
-            class="mx-1 mb-1 flex h-8 items-center rounded px-3 transition-colors duration-300 hover:bg-mask active:bg-mask-more">
+            class="sticky mx-1 mb-1 flex h-8 items-center rounded px-3 transition-colors duration-300 hover:bg-mask active:bg-mask-more">
             <span
                 class="!h-4 transition-all duration-300"
                 :class="[icon, collapse ? 'mr-6 !w-4' : 'mr-0 !w-0']"></span>
