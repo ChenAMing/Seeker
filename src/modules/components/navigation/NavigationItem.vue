@@ -22,7 +22,7 @@ const mapTypeSelectedText = {
 <template>
     <a
         :data-route-location="JSON.stringify(routeLocation)"
-        class="flex h-8 cursor-pointer items-center gap-6 rounded px-3 transition-colors duration-300 hover:bg-mask active:bg-mask-more"
+        class="flex h-10 cursor-pointer items-center gap-5 rounded px-4 transition-colors duration-300 hover:bg-mask active:bg-mask-more"
         :class="{ ['pointer-events-none ' + mapTypeSelected[type]]: selected }">
         <span
             class="pointer-events-none !h-4 min-w-[1rem] transition-colors"

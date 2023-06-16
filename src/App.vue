@@ -22,7 +22,7 @@ import { useTransition } from './composables'
     grid-template:
         's h'
         's c';
-    grid-template-rows: 3rem 1fr;
+    grid-template-rows: 3.5rem 1fr;
     grid-template-columns: 15rem 1fr;
 }
 

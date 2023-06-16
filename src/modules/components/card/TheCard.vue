@@ -16,7 +16,7 @@ defineSlots<{ action(props: {}): any; default(props: {}): any }>()
 <template>
     <div class="flex flex-col gap-4 rounded-2xl border p-6" :class="mapType[type]">
         <div class="flex">
-            <span class="text-xl">{{ title }}</span>
+            <span class="text-2xl">{{ title }}</span>
             <span class="flex flex-1 justify-end gap-1"><slot name="action"></slot></span>
         </div>
 

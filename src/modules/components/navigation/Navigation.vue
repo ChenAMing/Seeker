@@ -16,7 +16,7 @@ function go(e: MouseEvent) {
 </script>
 
 <template>
-    <nav @click="go" class="flex flex-col gap-1 p-1">
+    <nav @click="go" class="flex flex-col gap-1 m-1">
         <slot></slot>
     </nav>
 </template>
