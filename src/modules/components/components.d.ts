@@ -21,6 +21,8 @@ declare module '@vue/runtime-core' {
         NavigationItem: typeof Components.NavigationItem
         ListState: typeof Components.ListState
         TransitionCollapse: typeof Components.TransitionCollapse
+        TransitionFade: typeof Components.TransitionFade
+        TransitionModal: typeof Components.TransitionModal
     }
 }
 

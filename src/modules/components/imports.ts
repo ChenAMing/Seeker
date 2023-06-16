@@ -15,6 +15,10 @@ import Navigation from './navigation/Navigation.vue'
 import NavigationItem from './navigation/NavigationItem.vue'
 import ListState from './state/ListState.vue'
 import TransitionCollapse from './transition/TransitionCollapse.vue'
+import TransitionFade from './transition/TransitionFade.vue'
+import TransitionModal from './transition/TransitionModal.vue'
+
+export { TransitionCollapse, TransitionFade, TransitionModal }
 
 export {
     FloatButton,
@@ -33,5 +37,4 @@ export {
     Navigation,
     NavigationItem,
     ListState,
-    TransitionCollapse,
 }

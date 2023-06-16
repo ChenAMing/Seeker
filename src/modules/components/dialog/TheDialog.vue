@@ -1,6 +1,5 @@
 <script lang="ts" setup>
 import { ref } from 'vue'
-import { useTransition } from '@/composables'
 
 defineProps<{ title: string; disabledConfirm?: boolean; error?: boolean }>()
 
@@ -35,11 +34,11 @@ defineSlots<{
     <slot name="widget" v-bind="{ open }"></slot>
 
     <Teleport to="body">
-        <Transition v-bind="useTransition('fade')">
+        <TransitionFade>
             <div
                 v-show="show"
                 class="fixed inset-0 z-30 flex items-center justify-center bg-mask-more backdrop-blur-sm">
-                <Transition v-bind="useTransition('modal')">
+                <TransitionModal>
                     <div
                         v-if="show"
                         class="flex w-96 max-w-[90vw] flex-col gap-4 rounded-2xl p-6"
@@ -58,8 +57,8 @@ defineSlots<{
                             </TheButton>
                         </div>
                     </div>
-                </Transition>
+                </TransitionModal>
             </div>
-        </Transition>
+        </TransitionFade>
     </Teleport>
 </template>

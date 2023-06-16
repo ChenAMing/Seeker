@@ -9,11 +9,9 @@ const head = useHead()
         <TransitionGroup
             enter-from-class="opacity-0"
             leave-to-class="opacity-0"
-            leave-active-class="absolute">
-            <div
-                class="truncate text-lg transition-all duration-300"
-                v-for="title in head.title"
-                :key="title">
+            leave-active-class="absolute transition-all duration-300"
+            enter-active-class="transition-all duration-300">
+            <div class="truncate text-lg" v-for="title in head.title" :key="title">
                 {{ title }}
             </div>
         </TransitionGroup>

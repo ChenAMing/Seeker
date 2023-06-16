@@ -25,7 +25,7 @@ const toggle = () => (collapse.value = !collapse.value)
                 <!-- Placeholder -->
                 <div
                     v-if="placeholder"
-                    class="pointer-events-none mx-1 flex h-8 items-center gap-6 px-3 text-on-sur-var">
+                    class="pointer-events-none mx-1 flex h-10 items-center gap-5 px-4 text-on-sur-var">
                     <span
                         class="transition-color icon-[solar--close-square-bold-duotone] !h-4 !min-w-[1rem]"></span>
                     <span class="transition-color"> 空空如也 </span>

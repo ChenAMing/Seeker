@@ -1,6 +1,6 @@
-import { Transition, withModifiers } from 'vue'
+import { withModifiers } from 'vue'
+import { TransitionFade } from '@/modules/components/imports'
 import { useSide } from '@/stores'
-import { useTransition } from '@/composables'
 import SideLink from './SideLink.vue'
 import SideLogo from './SideLogo.vue'
 import SideStar from './SideStar.vue'
@@ -12,12 +12,12 @@ export default {
 
         return () => (
             <aside id='seeker-sidebar' class='relative'>
-                <Transition {...useTransition('fade')}>
+                <TransitionFade>
                     <div
                         onClick={withModifiers(side.toggle, ['self'])}
                         v-show={side.show}
                         class='fixed inset-0 z-20 bg-mask-more backdrop-blur-sm md:hidden'></div>
-                </Transition>
+                </TransitionFade>
 
                 <div
                     class={[
