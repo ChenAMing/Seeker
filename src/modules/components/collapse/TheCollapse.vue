@@ -9,11 +9,11 @@ const toggle = () => (collapse.value = !collapse.value)
 </script>
 
 <template>
-    <div class="flex flex-col">
+    <div class="mb-1 flex flex-col">
         <button
             type="button"
             @click="toggle"
-            class="sticky mx-1 flex h-10 items-center rounded px-4 transition-colors duration-300 hover:bg-mask active:bg-mask-more">
+            class="mx-1 flex h-10 items-center rounded px-4 transition-colors duration-300 hover:bg-mask active:bg-mask-more">
             <span
                 class="!h-4 transition-all duration-300"
                 :class="[icon, collapse ? 'mr-5 !w-4' : 'mr-1 !w-0']"></span>
