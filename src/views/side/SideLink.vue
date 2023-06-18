@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 import { useRoute } from 'vue-router'
 import { useSide } from '@/stores'
 
@@ -15,9 +15,9 @@ const sideLinks = [
 <template>
     <Navigation @after-go="side.close">
         <NavigationItem
-            type="primary"
             v-for="(link, index) in sideLinks"
             :key="index"
+            type="primary"
             :route-location="{ name: link.name }"
             :selected="link.name === route.name"
             :icon="link.icon">

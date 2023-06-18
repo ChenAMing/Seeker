@@ -1,6 +1,6 @@
-<script lang="ts" setup>
-import TemplateCreate from './TemplateCreate.vue'
+<script setup lang="ts">
 import { useCreate } from '@/stores'
+import TemplateCreate from './TemplateCreate.vue'
 
 const create = useCreate()
 </script>

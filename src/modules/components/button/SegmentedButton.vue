@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 defineProps<{ options: { value: string; text: string; icon?: string }[] }>()
 
 const modelValue = defineModel<string>({ required: true })
@@ -17,11 +17,11 @@ function select(value: string) {
             type="button"
             v-for="(option, index) in options"
             :key="index"
-            @click="select(option.value)"
+            :class="option.value === modelValue ? 'bg-pri text-on-pri' : 'bg-transparent'"
             class="flex items-center rounded px-4 text-sm transition-colors duration-300"
-            :class="option.value === modelValue ? 'bg-pri text-on-pri' : 'bg-transparent'">
-            <span class="!h-4 !w-4" :class="option.icon" v-if="option.icon"></span>
-            <span class="pointer-events-none mx-2 transition-colors duration-150">
+            @click="select(option.value)">
+            <span v-if="option.icon" class="!h-4 !w-4" :class="option.icon"></span>
+            <span class="pointer-events-none mx-2">
                 {{ option.text }}
             </span>
         </button>

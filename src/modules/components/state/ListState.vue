@@ -1,12 +1,10 @@
-<script lang="ts" setup generic="T">
+<script setup lang="ts" generic="T">
 import { computed, ref } from 'vue'
 
 const { state, initialIndex = 0 } = defineProps<{ state: T[]; initialIndex?: number }>()
 
-const stateLength = computed<number>(() => state.length)
-
 const currentIndex = ref<number>(
-    initialIndex < stateLength.value && initialIndex >= 0 ? initialIndex : 0
+    initialIndex < state.length && initialIndex >= 0 ? initialIndex : 0
 )
 
 const current = computed<T>(() => state[currentIndex.value])
@@ -14,11 +12,11 @@ const current = computed<T>(() => state[currentIndex.value])
 const emit = defineEmits<{ afterNext: [current: T] }>()
 
 function next(): void {
-    currentIndex.value = (currentIndex.value + 1) % stateLength.value
+    currentIndex.value = (currentIndex.value + 1) % state.length
     emit('afterNext', current.value)
 }
 
-defineSlots<{ default(props: { current: T; next: () => any }): any }>()
+defineSlots<{ default(props: { current: T; next: () => void }): any }>()
 </script>
 
 <template>

@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 
 defineProps<{ title: string; disabledConfirm?: boolean; error?: boolean }>()
@@ -26,7 +26,7 @@ function handleCancel() {
 
 defineSlots<{
     widget(props: { open: () => any }): any
-    default(props: {}): any
+    content(props: {}): any
 }>()
 </script>
 
@@ -46,13 +46,13 @@ defineSlots<{
                         <div class="ml-2 text-xl">
                             {{ title }}
                         </div>
-                        <div class="text-sm"><slot></slot></div>
+                        <div class="text-sm"><slot name="content"></slot></div>
                         <div class="flex items-center justify-end gap-4 pt-2">
                             <TheButton type="text" @click="handleCancel"> 取消 </TheButton>
                             <TheButton
                                 :type="error ? 'text' : 'primary'"
-                                @click="handleConfirm"
-                                :disabled="disabledConfirm">
+                                :disabled="disabledConfirm"
+                                @click="handleConfirm">
                                 确认
                             </TheButton>
                         </div>

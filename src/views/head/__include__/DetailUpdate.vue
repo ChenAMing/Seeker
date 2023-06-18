@@ -1,9 +1,9 @@
-<script lang="ts" setup>
-import { useHead, useLive } from '@/stores'
+<script setup lang="ts">
 import { reactive } from 'vue'
+import { useHead, useLive } from '@/stores'
 
-const live = useLive()
 const head = useHead()
+const live = useLive()
 
 const info = reactive<{
     name: string
@@ -25,7 +25,7 @@ function clearInfo() {
 
 function confirmEdit() {
     live.update(info.name, info.description)
-    head.modifyTitle(info.name)
+    head.title = info.name
     clearInfo()
 }
 </script>
@@ -33,24 +33,26 @@ function confirmEdit() {
 <template>
     <TheDialog
         title="编辑清单"
+        :disabled-confirm="info.name.length === 0"
         @after-open="getInfo"
         @confirm="confirmEdit"
-        @cancel="clearInfo"
-        :disabled-confirm="info.name.length === 0">
+        @cancel="clearInfo">
         <template #widget="{ open }">
             <IconButton icon="icon-[solar--pen-2-bold-duotone]" lower @click="open" />
         </template>
 
-        <div class="flex flex-col gap-4">
-            <label class="flex flex-col">
-                <span class="mb-2 ml-2">名称</span>
-                <TextInput v-model="info.name" />
-            </label>
+        <template #content>
+            <div class="flex flex-col gap-4">
+                <label class="flex flex-col">
+                    <span class="mb-2 ml-2">名称</span>
+                    <TextInput v-model="info.name" />
+                </label>
 
-            <label class="flex flex-col">
-                <span class="mb-2 ml-2">说明</span>
-                <TextInput v-model="info.description" />
-            </label>
-        </div>
+                <label class="flex flex-col">
+                    <span class="mb-2 ml-2">说明</span>
+                    <TextInput v-model="info.description" />
+                </label>
+            </div>
+        </template>
     </TheDialog>
 </template>

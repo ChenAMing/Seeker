@@ -7,14 +7,14 @@ export async function globalGuardEach(to: RouteLocationNormalized) {
     const head = useHead()
 
     if (to.name !== 'list') {
-        head.modifyTitle(to.meta.title as string)
+        head.title = to.meta.title as string
     } else {
         const db = await SeekerDB.init()
 
         if (to.query.id) {
             const listMeta = await db.accessMeta().get(to.query.id as string)
             if (listMeta) {
-                head.modifyTitle(listMeta.name)
+                head.title = listMeta.name
             } else return { name: 'app' }
         } else return { name: 'app' }
     }

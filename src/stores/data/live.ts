@@ -41,7 +41,7 @@ export const useLive = defineStore('live', () => {
             await meta.update(listMeta.value.id, name, description)
             listMeta.value.name = name
             listMeta.value.description = description
-            head.modifyTitle(name)
+            head.title = name
         }
     }
 

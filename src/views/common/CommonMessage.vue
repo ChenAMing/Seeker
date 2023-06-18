@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 import { useMessage } from '@/stores'
 
 const message = useMessage()
@@ -19,10 +19,10 @@ const mapType = {
                     leave-to-class="opacity-0"
                     leave-active-class="absolute">
                     <div
-                        :class="mapType[msg.type]"
                         v-for="msg in message.queue"
                         :key="msg.id"
-                        class="inset-x-0 top-0 rounded-md p-4 text-sm shadow-solid transition-all duration-300">
+                        class="inset-x-0 top-0 rounded-md p-4 text-sm shadow-solid transition-all duration-300"
+                        :class="mapType[msg.type]">
                         {{ msg.content }}
                     </div>
                 </TransitionGroup>

@@ -22,7 +22,9 @@ const selected = useSelected()
             </TransitionFade>
         </template>
 
-        <p>确认删除所选的 {{ selected.set.size }} 项？</p>
+        <template #content>
+            <p>确认删除所选的 {{ selected.set.size }} 项？</p>
+        </template>
     </TheDialog>
 
     <IconButton

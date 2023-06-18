@@ -1,6 +1,6 @@
 import { withModifiers } from 'vue'
-import { TransitionFade } from '@/modules/components/imports'
 import { useSide } from '@/stores'
+import { TransitionFade } from '@/modules/components/imports'
 import SideLink from './SideLink.vue'
 import SideLogo from './SideLogo.vue'
 import SideStar from './SideStar.vue'
@@ -22,7 +22,7 @@ export default {
                 <div
                     v-swipe={[side.close, '100', ['left']]}
                     class={[
-                        'fixed inset-y-0 left-0 flex h-100vh w-60 flex-col overflow-y-hidden bg-sur transition duration-300 hover:overflow-y-auto max-md:z-30',
+                        'fixed inset-y-0 left-0 flex h-100vh w-60 flex-col gap-1 overflow-y-hidden bg-sur pb-4 transition duration-300 hover:overflow-y-auto max-md:z-30',
                         side.show ? 'max-md:translate-x-0' : 'max-md:-translate-x-full',
                     ]}>
                     {/* Include */}

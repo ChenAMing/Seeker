@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 
 defineProps<{ title: string; icon: string; placeholder?: boolean }>()
@@ -9,7 +9,7 @@ const toggle = () => (collapse.value = !collapse.value)
 </script>
 
 <template>
-    <div class="mb-1 flex flex-col">
+    <div class="flex flex-col">
         <button
             type="button"
             @click="toggle"

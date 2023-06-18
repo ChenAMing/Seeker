@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 import { useRouter } from 'vue-router'
 
 const router = useRouter()
@@ -16,7 +16,7 @@ function go(e: MouseEvent) {
 </script>
 
 <template>
-    <nav @click="go" class="m-1 flex flex-col gap-1">
+    <nav @click="go" class="mx-1 flex flex-col gap-1">
         <slot></slot>
     </nav>
 </template>

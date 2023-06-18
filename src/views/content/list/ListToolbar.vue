@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 import ToolbarCount from './__include__/ToolbarCount.vue'
 import ToolbarDelete from './__include__/ToolbarDelete.vue'
 import ToolbarSort from './__include__/ToolbarSort.vue'

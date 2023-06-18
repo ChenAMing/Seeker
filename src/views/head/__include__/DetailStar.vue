@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 import { useLive } from '@/stores'
 
 const live = useLive()
@@ -6,9 +6,9 @@ const live = useLive()
 
 <template>
     <IconButton
-        @click="live.star"
         :icon="
             live.listMeta?.star ? 'icon-[solar--star-bold-duotone]' : 'icon-[solar--star-broken]'
         "
-        lower />
+        lower
+        @click="live.star" />
 </template>

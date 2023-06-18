@@ -1,9 +1,9 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 const { type = 'secondary', disabled } = defineProps<{
     type?: 'primary' | 'secondary' | 'outline' | 'text'
+    disabled?: boolean
     icon?: string
     appendIcon?: string
-    disabled?: boolean
 }>()
 
 const mapType = {
@@ -23,14 +23,14 @@ defineSlots<{ default(props: {}): string }>()
 <template>
     <button
         type="button"
-        @click="handleClick"
         :disabled="disabled"
         class="relative flex h-9 min-w-[2.5rem] items-center rounded border text-sm transition-colors duration-300 after:pointer-events-none after:absolute after:inset-0 after:rounded-sm after:bg-transparent after:transition-colors after:duration-300 hover:after:bg-mask focus:after:bg-mask active:after:bg-mask-more disabled:pointer-events-none"
-        :class="mapType[type]">
+        :class="mapType[type]"
+        @click="handleClick">
         <span v-if="icon" class="ml-4 !h-5 !w-5" :class="icon"></span>
         <span
-            :class="[icon ? 'pl-2' : 'pl-6', appendIcon ? 'pr-2' : 'pr-6']"
-            class="flex-grow text-center">
+            class="flex-grow text-center"
+            :class="[icon ? 'pl-2' : 'pl-6', appendIcon ? 'pr-2' : 'pr-6']">
             <slot></slot>
         </span>
         <span v-if="appendIcon" class="mr-4 !h-5 !w-5" :class="appendIcon"></span>

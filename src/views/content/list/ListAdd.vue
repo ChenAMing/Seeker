@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 import { useLive } from '@/stores'
 import { ref } from 'vue'
 
@@ -18,6 +18,8 @@ function confirmAdd() {
             <FloatButton icon="icon-[ri--add-fill]" @click="open" />
         </template>
 
-        <TextInput v-model="newValue" />
+        <template #content>
+            <TextInput v-model="newValue" />
+        </template>
     </TheDialog>
 </template>

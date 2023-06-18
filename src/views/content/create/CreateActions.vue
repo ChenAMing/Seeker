@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 import { useCreate } from '@/stores'
 
 const create = useCreate()
@@ -6,14 +6,14 @@ const create = useCreate()
 
 <template>
     <div class="flex justify-end gap-6 p-4">
-        <TheButton type="outline" @click="create.reset" icon="icon-[solar--restart-line-duotone]">
+        <TheButton type="outline" icon="icon-[solar--restart-line-duotone]" @click="create.reset">
             重置
         </TheButton>
         <TheButton
             type="primary"
-            @click="create.confirm"
+            :disabled="create.name.length === 0"
             icon="icon-[solar--check-read-outline]"
-            :disabled="create.name.length === 0">
+            @click="create.confirm">
             创建
         </TheButton>
     </div>

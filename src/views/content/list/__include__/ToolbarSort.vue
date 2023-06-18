@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 import { useSortArray } from '@/composables'
 import { useLive } from '@/stores'
 
@@ -27,14 +27,12 @@ const sortRules = [
     },
 ]
 
-function applySort(current: any) {
-    useSortArray(live.data, current.sortArgs)
-}
+const applySort = (current: any) => useSortArray(live.data, current.sortArgs)
 </script>
 
 <template>
-    <ListState :state="sortRules" #="{ current, next }" @after-next="applySort">
-        <TheButton type="text" @click="next" :icon="current.icon">
+    <ListState #="{ current, next }" :state="sortRules" @after-next="applySort">
+        <TheButton type="text" :icon="current.icon" @click="next">
             {{ current.text }}
         </TheButton>
     </ListState>

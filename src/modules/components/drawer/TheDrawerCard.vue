@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 import { ref } from 'vue'
 import TheCard from '../card/TheCard.vue'
 
@@ -16,7 +16,7 @@ const close = () => (show.value ? (show.value = false) : undefined)
 defineSlots<{
     widget(props: { show: boolean; toggle: () => any }): any
     action(props: {}): any
-    default(props: {}): any
+    content(props: {}): any
 }>()
 </script>
 
@@ -33,7 +33,8 @@ defineSlots<{
                 <template #action>
                     <slot name="action"></slot>
                 </template>
-                <slot></slot>
+
+                <slot name="content"></slot>
             </TheCard>
         </Transition>
     </div>

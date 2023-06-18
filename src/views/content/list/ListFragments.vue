@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 import { useLive } from '@/stores'
 import { useSelected } from '@/stores/data/selected'
 
@@ -8,7 +8,7 @@ const selected = useSelected()
 
 <template>
     <FragmentBook :selectable="selected.able" v-model="selected.set" #="{ selected }">
-        <TheFragment :value="item.id" v-for="item in live.data" :key="item.id" :="{ selected }">
+        <TheFragment v-for="item in live.data" v-bind="{ selected, value: item.id, key: item.id }">
             {{ item.value }}
         </TheFragment>
     </FragmentBook>

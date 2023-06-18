@@ -1,4 +1,4 @@
-<script lang="ts" setup>
+<script setup lang="ts">
 import { watchEffect } from 'vue'
 
 const { selectable } = defineProps<{ selectable?: boolean }>()
@@ -23,7 +23,7 @@ defineSlots<{ default(props: { selected: Set<string> }): any }>()
 <template>
     <div class="flex flex-wrap gap-2" @click="select">
         <TransitionFade group>
-            <slot :="{ selected }"></slot>
+            <slot v-bind="{ selected }"></slot>
         </TransitionFade>
     </div>
 </template>
