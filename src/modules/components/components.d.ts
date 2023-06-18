@@ -18,6 +18,7 @@ declare module 'vue' {
         Navigation: typeof Components.Navigation
         NavigationItem: typeof Components.NavigationItem
         ListState: typeof Components.ListState
+        DynamicText: typeof Components.DynamicText
         TransitionCollapse: typeof Components.TransitionCollapse
         TransitionFade: typeof Components.TransitionFade
         TransitionModal: typeof Components.TransitionModal

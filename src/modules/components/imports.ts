@@ -65,6 +65,12 @@ import ListState from './state/ListState.vue'
 
 export { ListState }
 /*
+ * Text
+ */
+import DynamicText from './text/DynamicText.vue'
+
+export { DynamicText }
+/*
  * Transition
  */
 import TransitionCollapse from './transition/TransitionCollapse.vue'
