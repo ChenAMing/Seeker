@@ -13,7 +13,7 @@ const sideLinks = [
 </script>
 
 <template>
-    <Navigation @after-go="side.show = false">
+    <Navigation @after-go="side.close">
         <NavigationItem
             type="primary"
             v-for="(link, index) in sideLinks"

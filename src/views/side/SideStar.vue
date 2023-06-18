@@ -12,7 +12,7 @@ const side = useSide()
         title="收藏"
         icon="icon-[solar--star-bold-duotone]"
         :placeholder="meta.allStar.length === 0">
-        <Navigation @after-go="side.show = false">
+        <Navigation @after-go="side.close">
             <NavigationItem
                 type="secondary"
                 icon="icon-[solar--stars-bold-duotone]"

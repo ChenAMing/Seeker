@@ -5,6 +5,12 @@ export const useSide = defineStore('side', {
         show: false,
     }),
     actions: {
+        open() {
+            this.show = true
+        },
+        close() {
+            this.show = false
+        },
         toggle() {
             this.show = !this.show
         },

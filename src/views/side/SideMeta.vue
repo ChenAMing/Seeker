@@ -12,7 +12,7 @@ const side = useSide()
         title="清单"
         icon="icon-[solar--widget-bold-duotone]"
         :placeholder="meta.allNoStar.length === 0">
-        <Navigation @after-go="side.show = false">
+        <Navigation @after-go="side.close">
             <NavigationItem
                 type="secondary"
                 icon="icon-[solar--notes-minimalistic-bold-duotone]"

@@ -1,9 +1,14 @@
+import { useSide } from '@/stores'
 import { RouterView } from 'vue-router'
 
 export default {
-    render: () => (
-        <main id='seeker-content'>
-            <RouterView />
-        </main>
-    ),
+    setup() {
+        const side = useSide()
+
+        return () => (
+            <main id='seeker-content' v-swipe={[side.open, '120', ['right']]}>
+                <RouterView />
+            </main>
+        )
+    },
 }
