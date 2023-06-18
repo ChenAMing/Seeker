@@ -1,4 +1,4 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHashHistory } from 'vue-router'
 import { globalGuardEach } from './guards/global'
 import common from '@/views/common'
 import content from '@/views/content'
@@ -6,7 +6,7 @@ import head from '@/views/head'
 import side from '@/views/side'
 
 const router = createRouter({
-    history: createWebHistory(import.meta.env.BASE_URL),
+    history: createWebHashHistory(import.meta.env.BASE_URL),
     routes: [
         {
             path: '/',
