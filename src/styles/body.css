@@ -1,3 +1,6 @@
+@import url('https://fonts.font.im/css?family=Noto+Sans');
+
 body {
     @apply selection:bg-teal-200 dark:selection:bg-teal-800;
+    @apply font-['Noto_Sans'];
 }

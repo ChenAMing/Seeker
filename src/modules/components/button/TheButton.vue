@@ -23,6 +23,8 @@ const mapTypeDisabled = {
 const emit = defineEmits<{ click: [] }>()
 
 const handleClick = () => (disabled ? undefined : emit('click'))
+
+defineSlots<{ default(props: {}): string }>()
 </script>
 
 <template>

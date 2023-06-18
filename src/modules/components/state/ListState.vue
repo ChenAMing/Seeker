@@ -11,7 +11,12 @@ const currentIndex = ref<number>(
 
 const current = computed<T>(() => state[currentIndex.value])
 
-const next = () => (currentIndex.value = (currentIndex.value + 1) % stateLength.value)
+const emit = defineEmits<{ afterNext: [current: T] }>()
+
+function next(): void {
+    currentIndex.value = (currentIndex.value + 1) % stateLength.value
+    emit('afterNext', current.value)
+}
 
 defineSlots<{ default(props: { current: T; next: () => any }): any }>()
 </script>

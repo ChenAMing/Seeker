@@ -1,8 +1,6 @@
-import '@vue/runtime-core'
-
 import * as Components from './imports'
 
-declare module '@vue/runtime-core' {
+declare module 'vue' {
     export interface GlobalComponents {
         FloatButton: typeof Components.FloatButton
         IconButton: typeof Components.IconButton
