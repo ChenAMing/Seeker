@@ -1,0 +1,41 @@
+<script lang="ts" setup>
+import { useSortArray } from '@/composables'
+import { useLive } from '@/stores'
+
+const live = useLive()
+
+const sortRules = [
+    {
+        sortArgs: { key: 'value', reverse: false },
+        icon: 'icon-[solar--arrow-down-line-duotone]',
+        text: '名称',
+    },
+    {
+        sortArgs: { key: 'value', reverse: true },
+        icon: 'icon-[solar--arrow-up-line-duotone]',
+        text: '名称',
+    },
+    {
+        sortArgs: { key: 'dateModified', reverse: false },
+        icon: 'icon-[solar--arrow-down-line-duotone]',
+        text: '日期',
+    },
+    {
+        sortArgs: { key: 'dateModified', reverse: true },
+        icon: 'icon-[solar--arrow-up-line-duotone]',
+        text: '日期',
+    },
+]
+
+function applySort(current: any) {
+    useSortArray(live.data, current.sortArgs)
+}
+</script>
+
+<template>
+    <ListState :state="sortRules" #="{ current, next }" @after-next="applySort">
+        <TheButton type="text" @click="next" :icon="current.icon">
+            {{ current.text }}
+        </TheButton>
+    </ListState>
+</template>

@@ -53,5 +53,23 @@ export const useLive = defineStore('live', () => {
         }
     }
 
-    return { listMeta, data, star, remove, update, addItem }
+    async function deleteItem(itemId: Set<[id: string][0]> | [id: string][0]) {
+        if (listMeta.value && listMeta.value.id && route.name === 'list') {
+            const db = await SeekerDB.init()
+
+            if (typeof itemId === 'string') {
+                await db.accessList(listMeta.value.id).delete(itemId)
+                const i = data.value.findIndex(el => el.id === itemId)
+                data.value.splice(i, 1)
+            } else {
+                for (let id of itemId) {
+                    await db.accessList(listMeta.value.id).delete(id)
+                    const i = data.value.findIndex(el => el.id === id)
+                    data.value.splice(i, 1)
+                }
+            }
+        }
+    }
+
+    return { listMeta, data, star, remove, update, addItem, deleteItem }
 })
