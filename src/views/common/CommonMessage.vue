@@ -12,7 +12,7 @@ const mapType = {
 
 <template>
     <Teleport to="body">
-        <div class="pointer-events-none fixed inset-x-0 top-0 flex flex-col items-center">
+        <div class="pointer-events-none fixed inset-x-0 top-0 z-50 flex flex-col items-center">
             <div class="relative z-50 flex w-80 max-w-[90vw] flex-col gap-2 pt-4">
                 <TransitionGroup
                     enter-from-class="opacity-0"

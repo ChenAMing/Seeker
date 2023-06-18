@@ -4,12 +4,13 @@ import { defineStore } from 'pinia'
 import { useRoute, useRouter } from 'vue-router'
 import { computed, ref, watchEffect } from 'vue'
 import { SeekerDB } from '@/utils/database'
-import { useMeta } from '..'
+import { useHead, useMeta } from '..'
 
 export const useLive = defineStore('live', () => {
     const route = useRoute()
     const router = useRouter()
     const meta = useMeta()
+    const head = useHead()
 
     const listMeta = computed<ListMeta | undefined>(() => {
         return meta.all.find((lm: ListMeta) => lm.id === route.query.id)
@@ -38,7 +39,9 @@ export const useLive = defineStore('live', () => {
     async function update(name: string, description: string) {
         if (listMeta.value && listMeta.value.id) {
             await meta.update(listMeta.value.id, name, description)
-            router.push({ name: 'list', query: { id: listMeta.value.id } })
+            listMeta.value.name = name
+            listMeta.value.description = description
+            head.modifyTitle(name)
         }
     }
 
