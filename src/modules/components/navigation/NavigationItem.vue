@@ -9,13 +9,8 @@ const { type = 'secondary' } = defineProps<{
 }>()
 
 const mapTypeSelected = {
-    primary: 'bg-pri hover:bg-pri',
-    secondary: 'bg-sec hover:bg-sec',
-}
-
-const mapTypeSelectedText = {
-    primary: 'text-on-pri',
-    secondary: 'text-on-sec',
+    primary: 'bg-pri hover:bg-pri text-on-pri',
+    secondary: 'bg-sec hover:bg-sec text-on-sec',
 }
 </script>
 
@@ -23,11 +18,7 @@ const mapTypeSelectedText = {
     <a
         :data-route-location="JSON.stringify(routeLocation)"
         class="flex h-10 cursor-pointer items-center gap-5 rounded px-4 transition-colors duration-300 hover:bg-mask active:bg-mask-more"
-        :class="{
-            'pointer-events-none': selected,
-            [mapTypeSelected[type]]: selected,
-            [mapTypeSelectedText[type]]: selected,
-        }">
+        :class="{ 'pointer-events-none': selected, [mapTypeSelected[type]]: selected }">
         <span class="pointer-events-none !h-4 min-w-[1rem]" :class="icon"></span>
         <span class="pointer-events-none truncate"> <slot></slot></span>
     </a>

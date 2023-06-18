@@ -41,11 +41,11 @@ function confirmEdit() {
             <IconButton icon="icon-[solar--pen-2-bold-duotone]" lower @click="open" />
         </template>
 
-        <template #content>
+        <template #content="{ show }">
             <div class="flex flex-col gap-4">
                 <label class="flex flex-col">
                     <span class="mb-2 ml-2">名称</span>
-                    <TextInput v-model="info.name" />
+                    <TextInput v-model="info.name" :auto-focus-when="show" />
                 </label>
 
                 <label class="flex flex-col">

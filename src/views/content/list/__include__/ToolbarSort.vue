@@ -32,8 +32,8 @@ const applySort = (current: any) => useSortArray(live.data, current.sortArgs)
 
 <template>
     <ListState #="{ current, next }" :state="sortRules" @after-next="applySort">
-        <TheButton type="text" :icon="current.icon" @click="next">
-            {{ current.text }}
+        <TheButton type="text" :icon="current.icon" higher @click="next">
+            <DynamicText :text="current.text" size="sm" />
         </TheButton>
     </ListState>
 </template>

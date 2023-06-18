@@ -4,6 +4,7 @@ const { type = 'secondary', disabled } = defineProps<{
     disabled?: boolean
     icon?: string
     appendIcon?: string
+    higher?: boolean
 }>()
 
 const mapType = {
@@ -24,8 +25,8 @@ defineSlots<{ default(props: {}): string }>()
     <button
         type="button"
         :disabled="disabled"
-        class="relative flex h-9 min-w-[2.5rem] items-center rounded border text-sm transition-colors duration-300 after:pointer-events-none after:absolute after:inset-0 after:rounded-sm after:bg-transparent after:transition-colors after:duration-300 hover:after:bg-mask focus:after:bg-mask active:after:bg-mask-more disabled:pointer-events-none"
-        :class="mapType[type]"
+        class="relative flex min-w-[2.5rem] items-center rounded border text-sm transition-colors duration-300 after:pointer-events-none after:absolute after:inset-0 after:rounded-sm after:bg-transparent after:transition-colors after:duration-300 hover:after:bg-mask focus:after:bg-mask active:after:bg-mask-more disabled:pointer-events-none"
+        :class="[mapType[type], higher ? 'h-10' : 'h-9']"
         @click="handleClick">
         <span v-if="icon" class="ml-4 !h-5 !w-5" :class="icon"></span>
         <span

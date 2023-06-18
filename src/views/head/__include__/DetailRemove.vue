@@ -15,9 +15,12 @@ const live = useLive()
         </template>
 
         <template #content>
-            <p class="align-middle leading-8">
-                *{{ live.listMeta?.name }}* 清单的所有项目都会被删除。确认删除？
-            </p>
+            <div>
+                <p class="align-middle leading-8">
+                    {{ live.listMeta?.name }} 清单的所有项目都会被删除。
+                </p>
+                <p>确认删除？</p>
+            </div>
         </template>
     </TheDialog>
 </template>

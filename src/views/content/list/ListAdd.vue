@@ -18,8 +18,8 @@ function confirmAdd() {
             <FloatButton icon="icon-[ri--add-fill]" @click="open" />
         </template>
 
-        <template #content>
-            <TextInput v-model="newValue" />
+        <template #content="{ show }">
+            <TextInput v-model="newValue" :auto-focus-when="show" />
         </template>
     </TheDialog>
 </template>

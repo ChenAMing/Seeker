@@ -26,7 +26,7 @@ function handleCancel() {
 
 defineSlots<{
     widget(props: { open: () => any }): any
-    content(props: {}): any
+    content(props: { show: boolean }): any
 }>()
 </script>
 
@@ -37,16 +37,16 @@ defineSlots<{
         <TransitionFade>
             <div
                 v-show="show"
-                class="fixed inset-0 z-30 flex items-center justify-center bg-mask-more backdrop-blur-sm">
+                class="fixed inset-0 z-40 flex items-center justify-center bg-mask-more backdrop-blur-sm">
                 <TransitionModal>
                     <div
                         v-if="show"
-                        class="flex w-96 max-w-[90vw] flex-col gap-4 rounded-2xl p-6"
+                        class="flex w-96 max-w-[90vw] flex-col gap-4 rounded-2xl p-6 max-sm:mb-32"
                         :class="error ? 'bg-err text-on-err' : 'bg-ctr-pri text-on-ctr-pri'">
                         <div class="ml-2 text-xl">
                             {{ title }}
                         </div>
-                        <div class="text-sm"><slot name="content"></slot></div>
+                        <div class="text-sm"><slot name="content" v-bind="{ show }"></slot></div>
                         <div class="flex items-center justify-end gap-4 pt-2">
                             <TheButton type="text" @click="handleCancel"> 取消 </TheButton>
                             <TheButton
