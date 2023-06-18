@@ -1,3 +1,3 @@
-export type Settings = {
+export type SeekerSettings = {
     theme: 'light' | 'auto' | 'dark'
 }

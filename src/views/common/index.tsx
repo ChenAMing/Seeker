@@ -1,4 +1,4 @@
-import { useSettings } from '@/stores'
+import { useSettings, useWatcher } from '@/stores'
 import CommonMessage from './CommonMessage.vue'
 
 export default {
@@ -7,6 +7,7 @@ export default {
          * 预先加载
          */
         useSettings()
+        useWatcher()
     },
     render: () => (
         <>
