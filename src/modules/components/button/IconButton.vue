@@ -22,7 +22,7 @@ function handleClick() {
         :class="[
             lower ? 'h-8 px-2 py-1.5' : 'h-10 p-2',
             error ? 'text-err focus:text-err' : 'focus:text-pri',
-            { 'pointer-events-none text-mask-more': disabled },
+            'disabled:pointer-events-none disabled:text-mask-more',
         ]">
         <span
             class="transition-all duration-150 group-active:scale-75 group-active:text-otl"

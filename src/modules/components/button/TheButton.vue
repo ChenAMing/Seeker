@@ -7,17 +7,10 @@ const { type = 'secondary', disabled } = defineProps<{
 }>()
 
 const mapType = {
-    primary: 'bg-pri text-on-pri border-transparent',
-    secondary: 'bg-sec text-on-sec border-transparent',
-    outline: 'bg-transparent border-otl',
-    text: 'bg-transparent border-transparent',
-}
-
-const mapTypeDisabled = {
-    primary: 'bg-more text-otl border-transparent',
-    secondary: 'bg-mask-more text-otl border-transparent',
-    outline: 'bg-transparent text-otl border-mask-more',
-    text: 'bg-transparent text-otl border-transparent',
+    primary: 'bg-pri text-on-pri border-transparent disabled:bg-mask-more disabled:text-otl',
+    secondary: 'bg-sec text-on-sec border-transparent disabled:bg-mask-more disabled:text-otl',
+    outline: 'bg-transparent border-otl disabled:text-otl disabled:border-mask-more',
+    text: 'bg-transparent border-transparent disabled:text-otl',
 }
 
 const emit = defineEmits<{ click: [] }>()
@@ -32,8 +25,8 @@ defineSlots<{ default(props: {}): string }>()
         type="button"
         @click="handleClick"
         :disabled="disabled"
-        class="relative flex h-9 min-w-[2.5rem] items-center rounded border text-sm transition-colors duration-300 after:pointer-events-none after:absolute after:inset-0 after:rounded-sm after:bg-transparent after:transition-colors after:duration-300 hover:after:bg-mask focus:after:bg-mask active:after:bg-mask-more"
-        :class="disabled ? [mapTypeDisabled[type], 'pointer-events-none'] : mapType[type]">
+        class="relative flex h-9 min-w-[2.5rem] items-center rounded border text-sm transition-colors duration-300 after:pointer-events-none after:absolute after:inset-0 after:rounded-sm after:bg-transparent after:transition-colors after:duration-300 hover:after:bg-mask focus:after:bg-mask active:after:bg-mask-more disabled:pointer-events-none"
+        :class="mapType[type]">
         <span v-if="icon" class="ml-4 !h-5 !w-5" :class="icon"></span>
         <span
             :class="[icon ? 'pl-2' : 'pl-6', appendIcon ? 'pr-2' : 'pr-6']"
